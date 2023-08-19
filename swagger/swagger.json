@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API management",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:1812",
+      "description": "Local server"
+    }
+    
+  ],
+  "tags": [
+    {
+      "name": "ExportDataset",
+      "description": "APIs fake export dataset"
+    }
+  ],
+  "paths": {
+    "/api/dataset/add-dataset": {
+      "post": {
+        "summary": "Thêm dữ liệu theo yêu cầu",
+        "tags": ["ExportDataset"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "count": {
+                    "type": "number",
+                    "description": "Số lượng phần tử muốn thêm"
+                  }
+                },
+                "required": ["count"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Tạo mới thành công"
+          },
+          "400": {
+            "description": "Lỗi khi gửi dữ liệu"
+          },
+          "401": {
+            "description": "Không có quyền truy cập"
+          },
+          "500": {
+            "description": "Lỗi server"
+          }
+        }
+      }
+    },
+    "/api/dataset/get-all-dataset": {
+      "get": {
+        "summary": "Lấy toàn bộ danh sách dataset hiện có",
+        "tags": ["ExportDataset"],
+        "responses": {
+          "200": {
+            "description": "Lấy dữ liệu thành công"
+          },
+          "400": {
+            "description": "Lỗi khi gửi dữ liệu"
+          },
+          "401": {
+            "description": "Không có quyền truy cập"
+          },
+          "500": {
+            "description": "Lỗi server"
+          }
+        }
+      }
+    }
+  }
+}
