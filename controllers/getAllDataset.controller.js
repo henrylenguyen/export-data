@@ -4,10 +4,12 @@ import datasetModel from './../models/dataset.model.js';
 const getAllDataset = async (req, res, next) => {
   try {
     const data = await datasetModel.find({}, { __v:0})
+    const total = await datasetModel.countDocuments({});
     const header = await headerDatasetModel.find({}, { __v:0,_id:0})
     res.status(200).json({
       message: "Lấy dữ liệu thành công",
       statusCode: 200,
+      totalRecords: total,
       data: {
         headercolumns: header,
         dataTable: data
