@@ -78,6 +78,43 @@
           }
         }
       }
+    },
+    "/api/dataset/get-by-page": {
+      "get": {
+        "summary": "Lấy danh sách dataset phân trang",
+        "tags": ["ExportDataset"],
+        "parameters": [
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang hiện tại",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "recordNumber",
+            "in": "query",
+            "description": "Số lượng phần tử cần lấy mỗi trang",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lấy danh sách thành công"
+          },
+          "400": {
+            "description": "Lỗi cú pháp"
+          },
+          "500": {
+            "description": "Lỗi server"
+          }
+        }
+      }
     }
   }
 }
