@@ -1,5 +1,5 @@
-import datasetModel from "../models/dataset.model.js";
 
+import datasetModel from './../models/dataset.model.js';
 const getAllDataset = async (req, res, next) => {
   try {
     const data = await datasetModel.find({}, { __v:0})

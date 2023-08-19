@@ -1,5 +1,5 @@
-import datasetModel from "../models/dataset.model.js";
 
+import datasetModel from './../models/dataset.model.js';
 // Hàm để tạo dữ liệu ngẫu nhiên
 const generateRandomData = () => {
   return {
