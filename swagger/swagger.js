@@ -6,18 +6,7 @@ const options = {
   customCss: '.topbar-wrapper img',
   // Add securityDefinitions for JWT authentication
   securityDefinitions: {
-    bearerAuth: {
-      type: 'apiKey',
-      name: 'Authorization',
-      scheme: 'bearer',
-      in: 'header',
-    },
-    userTokenAuth: {
-      type: 'apiKey',
-      name: 'userToken',
-      scheme: 'bearer',
-      in: 'header',
-    },
+
   },
   definition: {
     openapi: '3.0.0',
@@ -31,7 +20,7 @@ const options = {
         description: 'Local server',
       },
       {
-        "url": "https://movie-server.herokuapp.com/",
+        "url": "https://export-data-5d46e4007494.herokuapp.com",
         "description": "Heroku server"
       }
     ],
