@@ -1,6 +1,6 @@
 import datasetModel from "../models/dataset.model.js";
 
-export const getAllDataset = async (req, res, next) => {
+const getAllDataset = async (req, res, next) => {
   try {
     const data = await datasetModel.find({}, { __v:0})
     res.status(200).json({
@@ -12,3 +12,5 @@ export const getAllDataset = async (req, res, next) => {
     res.status(500).json({ error: 'Có lỗi xảy ra' });
   }
 };
+
+export default getAllDataset

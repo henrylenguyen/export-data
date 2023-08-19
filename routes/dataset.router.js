@@ -1,6 +1,6 @@
 import { Router } from "express";
-import addDatasetController from "../controllers/addDataset.controller.js";
-import { getAllDataset } from "../controllers/getAllDataSet.controller.js";
+import getAllDataset from './../controllers/getAllDataset.controller';
+import addDatasetController from './../controllers/addDataset.controller';
 const datasetRouter = Router();
 // Lấy dữ liệu từ db
 datasetRouter.post("/add-dataset",addDatasetController);
