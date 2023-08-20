@@ -40,7 +40,7 @@ const addDatasetController = async (req, res) => {
       for (let i = 0; i < count; i++) {
         newData.push(generateRandomData());
       }
-
+      console.log(`Chạy được tới: ${newData.length}`)
       const result = await datasetModel.insertMany(newData);
 
       res.status(201).json({
