@@ -41,14 +41,22 @@ const addDatasetController = async (req, res) => {
         newData.push(generateRandomData());
       }
       console.log(`Chạy được tới: ${newData.length}`)
-      const result = await datasetModel.insertMany(newData);
-
-      res.status(201).json({
-        message: "Thêm mới dữ liệu thành công",
-        statusCode: 201,
-        total: `Tổng dữ liệu thêm mới là: ${newData.length}`,
-        data: result
-      });
+      try {
+        const result = await datasetModel.insertMany(newData);
+        console.log("file: addDataset.controller.js:46 ~ result:", result)
+        if(result){
+          res.status(201).json({
+            message: "Thêm mới dữ liệu thành công",
+            statusCode: 201,
+            total: `Tổng dữ liệu thêm mới là: ${newData.length}`,
+            data: result
+          });
+        }
+        
+      } catch (error) {
+        console.log("file: addDataset.controller.js:54 ~ error:", error)
+        
+      }
     }
   }
   catch (error) {
